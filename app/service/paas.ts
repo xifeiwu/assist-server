@@ -1,6 +1,19 @@
 import { Service } from 'egg';
 
 export default class PaasService extends Service {
+    getPaasServer() {
+        const NODE_ENV = process.env.NODE_ENV as string;
+        var server = 'http://10.10.202.143:30334';
+        const serverMap = {
+            dev: 'http://10.10.58.126:30334',
+            test: 'http://10.10.202.143:30334',
+            production: 'http://galaxy-web-server.galaxy.production',
+        };
+        if (serverMap.hasOwnProperty(NODE_ENV)) {
+            server = serverMap[NODE_ENV];
+        }
+        return server;
+    }
     getCasServer() {
         const CAS_PATH_TEST = 'http://10.10.201.66:8080/puhui-cas';
         const CAS_PATH_PRODUCTION = 'http://cas.finupgroup.com/puhui-cas';

@@ -7,4 +7,7 @@ export default (app: Application) => {
   router.all('/api/test/echo', controller.test.echo);
   router.all('/api/test/proxy', controller.test.proxy);
   router.all('/api/test/error', controller.test.error);
+
+  router.post('/api/paas/terminal/get-token', controller.paas.token4Terminal);
+  router.post('/api/cas/service-validate', controller.paas.casValidator);
 };
