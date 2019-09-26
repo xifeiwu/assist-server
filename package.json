@@ -10,7 +10,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-assist-server",
     "start:finup:test": "PLATFORM=finup:test egg-scripts start --daemon --title=egg-server-assist-server",
-    "start:finup:proudction": "PLATFORM=finup:proudction egg-scripts start --daemon --title=egg-server-assist-server",
+    "start:finup:production": "PLATFORM=finup:production egg-scripts start --daemon --title=egg-server-assist-server",
     "stop": "egg-scripts stop --title=egg-server-assist-server",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
