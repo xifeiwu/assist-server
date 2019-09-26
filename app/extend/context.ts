@@ -34,8 +34,14 @@ class AxiosHelper {
     }
 }
 
-
 export default {
     AxiosHelper,
     axios: new AxiosHelper({}),
+    wrapBody(content) {
+        return {
+            success: true,
+            content: content,
+            t: new Date().getTime()
+        };
+    }
 };
