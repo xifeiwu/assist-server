@@ -7,6 +7,22 @@ export default class TestController extends Controller {
         // this.ctx.curl()
         ctx.body = await ctx.service.test.sayHi('egg');
     }
+    info() {
+        const { ctx, app } = this;
+        var { type } = ctx.query;
+        const infoMap = {
+            config: app.config,
+            EGG_SERVER_ENV: process.env.EGG_SERVER_ENV ? process.env.EGG_SERVER_ENV : 'not set',
+            NODE_ENV: process.env.NODE_ENV ? process.env.NODE_ENV : 'not set',
+            PLATFORM: process.env.PLATFORM ? process.env.PLATFORM : 'not set',
+        }
+        if (!type || !infoMap.hasOwnProperty(type)) {
+            ctx.type = 'html';
+            ctx.body = '<ul>' + Object.keys(infoMap).map(it => `<li><a href="/api/test/info?type=${it}">${it}</a></li>`).join('') + '</ul>';
+        } else {
+            ctx.body = infoMap[type];
+        }
+    }
     echo() {
         const { ctx } = this;
         // ctx.logger.debug(ctx.request.body);
