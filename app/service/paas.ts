@@ -40,7 +40,7 @@ export default class PaasService extends Service {
             serverMap = {
                 development: 'http://cas.finupgroup.com/puhui-cas',
                 test: 'http://cas.finupgroup.com/puhui-cas',
-                production: 'http://cas.finupgroup/puhui-cas',
+                production: 'http://cas.finupgroup.com/puhui-cas',
             };
         }
         return serverMap[env];
