@@ -28,13 +28,12 @@
             "autoAttachChildProcesses": true
         },
         {
-            "name": "Run Current TS Tests",
+            "name": "Run Current Tests",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/egg-bin",
             "args": [
-                "-r",
-                "ts-node/register",
+                "test",
                 "${relativeFile}"
             ],
             "cwd": "${workspaceRoot}",
