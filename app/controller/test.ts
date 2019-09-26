@@ -1,0 +1,23 @@
+import { Controller } from 'egg';
+
+export default class TestController extends Controller {
+    async connection() {
+        const { ctx } = this;
+        // this.app.config
+        // this.ctx.curl()
+        ctx.body = await ctx.service.test.sayHi('egg');
+    }
+    echo() {
+        const { ctx } = this;
+        // ctx.logger.debug(ctx.request.body);
+        ctx.body = ctx.request.body;
+    }
+    async proxy() {
+        const { ctx } = this;
+        const { target } = ctx.query;
+        // ctx.body = ctx.query;
+        ctx.body = await ctx.axios.requestData({
+            url: target
+        });
+    }
+}
