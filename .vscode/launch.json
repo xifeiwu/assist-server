@@ -26,6 +26,20 @@
             "port": 9229,
             // 自动 attach 子进程
             "autoAttachChildProcesses": true
+        },
+        {
+            "name": "Run Current TS Tests",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "-r",
+                "ts-node/register",
+                "${relativeFile}"
+            ],
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector",
+            "internalConsoleOptions": "openOnSessionStart"
         }
     ]
 }
