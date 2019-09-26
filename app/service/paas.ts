@@ -2,7 +2,7 @@ import { Service } from 'egg';
 
 export default class PaasService extends Service {
     getPlatform() {
-        var [corp, env] = ['finup', 'test'];
+        var [corp, env] = ['finup', 'development'];
         if (process.env.PLATFORM) {
             [corp, env] = process.env.PLATFORM.split(':');
         }
@@ -13,7 +13,8 @@ export default class PaasService extends Service {
     getPaasServer() {
         const { corp, env } = this.getPlatform();
         var serverMap = {
-            development: 'http://10.10.58.126:30334',
+            // development: 'http://10.10.58.126:30334',
+            development: 'http://10.10.202.143:30334',
             test: 'http://10.10.202.143:30334',
             production: 'http://galaxy-web-server.galaxy.production',
         };
@@ -26,8 +27,8 @@ export default class PaasService extends Service {
         const CAS_PATH_TEST = 'http://10.10.201.66:8080/puhui-cas';
         const CAS_PATH_PRODUCTION = 'http://cas.finupgroup.com/puhui-cas';
         const serverMap = {
-            development: 'http://cas.info.production/puhui-cas',
-            test: 'http://cas.info.production/puhui-cas',
+            development: 'http://cas.finupgroup.com/puhui-cas',
+            test: 'http://cas.finupgroup.com/puhui-cas',
             production: 'http://cas.info.production/puhui-cas',
         };
         if (corp === 'renmai') {
