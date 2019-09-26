@@ -1,41 +1,48 @@
 import { Service } from 'egg';
 
 export default class PaasService extends Service {
+    getPlatform() {
+        var [corp, env] = ['finup', 'test'];
+        if (process.env.PLATFORM) {
+            [corp, env] = process.env.PLATFORM.split(':');
+        }
+        return {
+            corp, env
+        }
+    }
     getPaasServer() {
-        const NODE_ENV = process.env.NODE_ENV as string;
-        let server = 'http://10.10.202.143:30334';
-        const serverMap = {
-            dev: 'http://10.10.58.126:30334',
+        const { corp, env } = this.getPlatform();
+        var serverMap = {
+            development: 'http://10.10.58.126:30334',
             test: 'http://10.10.202.143:30334',
             production: 'http://galaxy-web-server.galaxy.production',
         };
-        if (serverMap.hasOwnProperty(NODE_ENV)) {
-            server = serverMap[NODE_ENV];
+        if (corp === 'renmai') {
         }
-        return server;
+        return serverMap[env];
     }
     getCasServer() {
+        const { corp, env } = this.getPlatform();
         const CAS_PATH_TEST = 'http://10.10.201.66:8080/puhui-cas';
         const CAS_PATH_PRODUCTION = 'http://cas.finupgroup.com/puhui-cas';
-        const NODE_ENV = process.env.NODE_ENV as string;
-        let casServer = 'http://cas.finupgroup.com/puhui-cas';
         const serverMap = {
+            development: 'http://cas.info.production/puhui-cas',
+            test: 'http://cas.info.production/puhui-cas',
             production: 'http://cas.info.production/puhui-cas',
         };
-        if (serverMap.hasOwnProperty(NODE_ENV)) {
-            casServer = serverMap[NODE_ENV];
+        if (corp === 'renmai') {
         }
-        return casServer;
+        return serverMap[env];
     }
     getTerminalInfo(profileType, profileName) {
+        const { corp, env } = this.getPlatform();
         const results = {
             protocol: 'https',
             host: '',
             port: 30003,
             secretKey: 'CJxYK8Ck', // secretKey for production profile
         };
-        const NODE_ENV = process.env.NODE_ENV;
-        if (NODE_ENV && NODE_ENV.startsWith('production')) {
+        if (env && env.startsWith('production')) {
             if (profileType === 'PRODUCTION') {
                 if (profileName === 'production-ff') {
                     results.host = 'ff-k8s-webshell.finupgroup.com';
@@ -52,6 +59,8 @@ export default class PaasService extends Service {
             results.host = 'k8s-webshell.finupgroup.com';
             results.port = 30001;
             results.secretKey = 'ERkyNK2Q';
+        }
+        if (corp === 'renmai') {
         }
         return results;
     }
