@@ -11,34 +11,34 @@ export default class PaasController extends Controller {
         const { ctx, service } = this;
         const body = ctx.request.body;
         const CAS_PATH = service.paas.getCasServer();
-        const url = `${CAS_PATH}/serviceValidate?service=${body.service}&ticket=${body.ticket}`
-        const resData = await ctx.axios.requestData({url});
+        const url = `${CAS_PATH}/serviceValidate?service=${body.service}&ticket=${body.ticket}`;
+        const resData = await ctx.axios.requestData({ url });
         const xmlLineList = resData.split('\n').filter(it => {
             return it.trim();
         });
         const formattedXmlLineList = xmlLineList.map(it => {
-            it = it.replace(/(<\/?)cas:/g, '$1')
+            it = it.replace(/(<\/?)cas:/g, '$1');
             it = it.replace(/<!--.*?-->/g, '');
             it = it.trim();
             return it;
         }).filter(it => {
-            return it
+            return it;
         });
         // console.log(formattedXmlLineList);
         // console.log(formattedXmlLineList.join(''));
-        const formatOfJson = await new Promise((resolve) => {
+        const formatOfJson = await new Promise(resolve => {
             require('xml2js').parseString(formattedXmlLineList.join(''), (err, result) => {
                 if (err) {
                     resolve(err);
                 } else {
-                    resolve(result)
+                    resolve(result);
                 }
             });
         });
 
         ctx.body = ctx.wrapBody({
             json: formatOfJson,
-            xml: xmlLineList.join('\n')
+            xml: xmlLineList.join('\n'),
         });
     }
     async token4Terminal() {
@@ -49,9 +49,9 @@ export default class PaasController extends Controller {
             path: `${service.paas.getPaasServer()}/user/roles/permissions?exclude=true`,
             method: 'get',
             headers: {
-                token
-            }
-        }))['content'];
+                token,
+            },
+        })).content;
         if (!Array.isArray(permissionList)) {
             ctx.throw(200, 'request /user/roles/permissions?exclude=true fail');
         }
@@ -68,13 +68,13 @@ export default class PaasController extends Controller {
         const teminalServerResData = await ctx.axios.requestData({
             url,
             method: 'post',
-            data: payload
+            data: payload,
         });
 
         ctx.body = ctx.wrapBody({
             token: teminalServerResData.data.token,
             host: terminalServerInfo.host,
-            port: terminalServerInfo.port
+            port: terminalServerInfo.port,
         });
     }
 }

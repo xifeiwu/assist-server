@@ -36,11 +36,11 @@ export default (appInfo: EggAppInfo) => {
       ctx.body = {
         success: false,
         t: Date.now(),
-        msg: err.message
+        msg: err.message,
       };
       ctx.status = err.status ? err.status : 200;
     },
-  }
+  };
 
   // the return config will combines to EggAppConfig
   return {

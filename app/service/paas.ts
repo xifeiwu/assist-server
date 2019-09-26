@@ -3,7 +3,7 @@ import { Service } from 'egg';
 export default class PaasService extends Service {
     getPaasServer() {
         const NODE_ENV = process.env.NODE_ENV as string;
-        var server = 'http://10.10.202.143:30334';
+        let server = 'http://10.10.202.143:30334';
         const serverMap = {
             dev: 'http://10.10.58.126:30334',
             test: 'http://10.10.202.143:30334',

@@ -40,8 +40,8 @@ export default {
     wrapBody(content) {
         return {
             success: true,
-            content: content,
-            t: new Date().getTime()
+            content,
+            t: Date.now(),
         };
-    }
+    },
 };
