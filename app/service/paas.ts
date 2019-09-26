@@ -57,6 +57,7 @@ export default class PaasService extends Service {
                 results.port = 30002;
             }
         } else {
+            // NOTICE: 需要在/etc/hosts中添加配置，10.10.73.131 k8s-webshell.finupgroup.com
             results.host = 'k8s-webshell.finupgroup.com';
             results.port = 30001;
             results.secretKey = 'ERkyNK2Q';
