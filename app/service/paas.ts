@@ -19,6 +19,11 @@ export default class PaasService extends Service {
             production: 'http://galaxy-web-server.galaxy.production',
         };
         if (corp === 'renmai') {
+            serverMap = {
+                development: 'http://bs.renmaitech.cn',
+                test: 'http://bs.renmaitech.cn',
+                production: 'http://bs.renmaitech.cn',
+            };
         }
         return serverMap[env];
     }
@@ -26,12 +31,17 @@ export default class PaasService extends Service {
         const { corp, env } = this.getPlatform();
         const CAS_PATH_TEST = 'http://10.10.201.66:8080/puhui-cas';
         const CAS_PATH_PRODUCTION = 'http://cas.finupgroup.com/puhui-cas';
-        const serverMap = {
+        var serverMap = {
             development: 'http://cas.finupgroup.com/puhui-cas',
             test: 'http://cas.finupgroup.com/puhui-cas',
             production: 'http://cas.info.production/puhui-cas',
         };
         if (corp === 'renmai') {
+            serverMap = {
+                development: 'http://cas.finupgroup.com/puhui-cas',
+                test: 'http://cas.finupgroup.com/puhui-cas',
+                production: 'http://cas.finupgroup/puhui-cas',
+            };
         }
         return serverMap[env];
     }
