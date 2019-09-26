@@ -23,8 +23,23 @@ export default (appInfo: EggAppInfo) => {
 
   config.security = {
     csrf: {
-      enable: false
-    }
+      enable: false,
+    },
+  };
+
+  config.onerror = {
+    json(err, ctx) {
+      if (!(err instanceof Error)) {
+        err = new Error(`non-error thrown: ${err}`);
+      }
+      // json hander
+      ctx.body = {
+        success: false,
+        t: Date.now(),
+        msg: err.message
+      };
+      ctx.status = err.status ? err.status : 200;
+    },
   }
 
   // the return config will combines to EggAppConfig

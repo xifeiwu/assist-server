@@ -17,7 +17,12 @@ export default class TestController extends Controller {
         const { target } = ctx.query;
         // ctx.body = ctx.query;
         ctx.body = await ctx.axios.requestData({
-            url: target
+            url: target,
         });
+    }
+    async error() {
+        const { ctx } = this;
+        const {status, message} = ctx.request.body;
+        ctx.throw(status ? status : 200, message ? message : 'no error message');
     }
 }
