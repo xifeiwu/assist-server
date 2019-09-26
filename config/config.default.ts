@@ -1,4 +1,4 @@
-import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
+import { EggAppConfig, EggAppInfo, PowerPartial, ClusterOptions } from 'egg';
 
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
@@ -14,6 +14,18 @@ export default (appInfo: EggAppInfo) => {
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
+
+  config.cluster = {
+    listen: {
+      port: 6003,
+    },
+  };
+
+  config.security = {
+    csrf: {
+      enable: false
+    }
+  }
 
   // the return config will combines to EggAppConfig
   return {
