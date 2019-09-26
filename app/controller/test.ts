@@ -8,13 +8,15 @@ export default class TestController extends Controller {
         ctx.body = await ctx.service.test.sayHi('egg');
     }
     info() {
-        const { ctx, app } = this;
+        const { ctx, app, service } = this;
         var { type } = ctx.query;
         const infoMap = {
             config: app.config,
             EGG_SERVER_ENV: process.env.EGG_SERVER_ENV ? process.env.EGG_SERVER_ENV : 'not set',
             NODE_ENV: process.env.NODE_ENV ? process.env.NODE_ENV : 'not set',
             PLATFORM: process.env.PLATFORM ? process.env.PLATFORM : 'not set',
+            paasServer: service.paas.getPaasServer(),
+            casServer: service.paas.getCasServer()
         }
         if (!type || !infoMap.hasOwnProperty(type)) {
             ctx.type = 'html';
