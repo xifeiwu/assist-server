@@ -7,7 +7,7 @@ export default class PaasController extends Controller {
         // this.ctx.curl()
         ctx.body = await ctx.service.test.sayHi('egg');
     }
-    async casValidator() {
+    async casIndentify() {
         const { ctx, service } = this;
         const body = ctx.request.body;
         const CAS_PATH = service.paas.getCasServer();

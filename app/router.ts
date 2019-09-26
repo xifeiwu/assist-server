@@ -9,5 +9,6 @@ export default (app: Application) => {
   router.all('/api/test/error', controller.test.error);
 
   router.post('/api/paas/terminal/get-token', controller.paas.token4Terminal);
-  router.post('/api/cas/service-validate', controller.paas.casValidator);
+  router.post('/api/cas/service-validate', controller.paas.casIndentify);
+  router.post('/api/paas/cas-identify', controller.paas.casIndentify);
 };
