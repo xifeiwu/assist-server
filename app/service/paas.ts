@@ -73,6 +73,23 @@ export default class PaasService extends Service {
             results.secretKey = 'ERkyNK2Q';
         }
         if (corp === 'renmai') {
+            results.secretKey = 'ERkyNK2Q';
+            if (env && env.startsWith('production')) {
+                if (profileType === 'PRODUCTION') {
+                    if (profileName === 'production-ff') {
+                        results.host = 'webshell.renmaitech.cn';
+                        results.port = 30001;
+                    } else {
+                        results.host = 'webshell.renmaitech.cn';
+                        results.port = 30001;
+                    }
+                } else {
+                    results.host = 'twebshell.renmaitech.cn';
+                    results.port = 30001;
+                }
+            } else {
+                return new Error('任买测试环境终端暂未配置');
+            }
         }
         return results;
     }

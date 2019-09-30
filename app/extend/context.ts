@@ -9,7 +9,7 @@ class AxiosHelper {
     instance: AxiosInstance;
     constructor(instanceConfig: AxiosRequestConfig) {
         this.instance = Axios.create(Object.assign({
-            timeout: 15000,
+            timeout: 30000
         }, instanceConfig));
     }
 
