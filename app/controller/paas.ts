@@ -46,7 +46,7 @@ export default class PaasController extends Controller {
         const { podNs, podName, containerName, token, userName, profileType, profileName } = ctx.request.body;
         const terminalServerInfo = service.paas.getTerminalInfo(profileType, profileName);
         if (terminalServerInfo instanceof Error) {
-            return ctx.throw(terminalServerInfo);
+            return ctx.throw(200, terminalServerInfo.message);
         }
         const permissionList = (await ctx.axios.requestData({
             path: `${service.paas.getPaasServer()}/user/roles/permissions?exclude=true`,
