@@ -67,12 +67,16 @@ export default class PaasService extends Service {
                 results.port = 30002;
             }
         } else {
-            // NOTICE: 需要在/etc/hosts中添加配置，10.10.73.131 k8s-webshell.finupgroup.com
+            // NOTICE: 需要在/etc/hosts中添加配置：
+            // 10.10.73.131 k8s-webshell.finupgroup.com
             results.host = 'k8s-webshell.finupgroup.com';
             results.port = 30001;
             results.secretKey = 'ERkyNK2Q';
         }
         if (corp === 'renmai') {
+            // NOTICE: 需要在/etc/hosts中添加配置：
+            // 106.75.71.237 webshell.renmaitech.cn
+            // 117.50.4.232 twebshell.renmaitech.cn
             results.secretKey = 'ERkyNK2Q';
             if (env && env.startsWith('production')) {
                 if (profileType === 'PRODUCTION') {
