@@ -55,13 +55,8 @@ export default class PaasService extends Service {
         };
         if (env && env.startsWith('production')) {
             if (profileType === 'PRODUCTION') {
-                if (profileName === 'production-ff') {
-                    results.host = 'ff-k8s-webshell.finupgroup.com';
-                    results.port = 30003;
-                } else {
-                    results.host = 'pro-k8s-webshell.finupgroup.com';
-                    results.port = 30001;
-                }
+                results.host = 'pro-k8s-webshell.finupgroup.com';
+                results.port = 30001;
             } else {
                 results.host = 'test-k8s-webshell.finupgroup.com';
                 results.port = 30002;
