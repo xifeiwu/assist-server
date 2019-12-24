@@ -37,7 +37,8 @@ class AxiosHelper {
 export default {
     AxiosHelper,
     axios: new AxiosHelper({}),
-    wrapBody(content) {
+    // wrapper for response content
+    ordinaryFormat(content) {
         return {
             success: true,
             content,
