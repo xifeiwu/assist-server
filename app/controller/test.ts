@@ -41,6 +41,6 @@ export default class TestController extends Controller {
     async error() {
         const { ctx } = this;
         const { status, message } = ctx.request.body;
-        ctx.throw(status ? status : 200, message ? message : 'no error message');
+        ctx.throw(status ? status : 500, message ? message : 'no error message');
     }
 }
