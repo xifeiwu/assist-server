@@ -36,11 +36,14 @@ export default class PaasService extends Service {
             test: 'http://cas.finupgroup.com/puhui-cas',
             production: 'http://cas.info.production/puhui-cas',
         };
+        // NOTICE: cas server for renmai
+        // 公网：http://sso.renmaitech.com/puhui-cas
+        // 内网：http://puhui-cas.public.production/puhui-cas
         if (corp === 'renmai') {
             serverMap = {
-                development: 'http://cas.finupgroup.com/puhui-cas',
-                test: 'http://cas.finupgroup.com/puhui-cas',
-                production: 'http://cas.finupgroup.com/puhui-cas',
+                development: 'http://puhui-cas.public.production/puhui-cas',
+                test: 'http://puhui-cas.public.production/puhui-cas',
+                production: 'http://puhui-cas.public.production/puhui-cas',
             };
         }
         return serverMap[env];
