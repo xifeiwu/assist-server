@@ -16,12 +16,14 @@ export default class PaasService extends Service {
             // development: 'http://10.10.58.126:30334',
             development: 'http://10.10.202.143:30334',
             test: 'http://10.10.202.143:30334',
+            production_gray: 'http://127.0.0.1:30334',
             production: 'http://galaxy-web-server.galaxy.production',
         };
         if (corp === 'renmai') {
             serverMap = {
                 development: 'http://bs.renmaitech.cn',
                 test: 'http://bs.renmaitech.cn',
+                production_gray: 'http://bs.renmaitech.cn',
                 production: 'http://bs.renmaitech.cn',
             };
         }
@@ -34,6 +36,7 @@ export default class PaasService extends Service {
         var serverMap = {
             development: 'http://cas.finupgroup.com/puhui-cas',
             test: 'http://cas.finupgroup.com/puhui-cas',
+            production_gray: 'http://cas.info.production/puhui-cas',
             production: 'http://cas.info.production/puhui-cas',
         };
         // NOTICE: cas server for renmai
@@ -43,6 +46,7 @@ export default class PaasService extends Service {
             serverMap = {
                 development: 'http://puhui-cas.public.production/puhui-cas',
                 test: 'http://puhui-cas.public.production/puhui-cas',
+                production_gray: 'http://puhui-cas.public.production/puhui-cas',
                 production: 'http://puhui-cas.public.production/puhui-cas',
             };
         }

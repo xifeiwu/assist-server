@@ -11,6 +11,7 @@
     "start": "npm run tsc && egg-scripts start --daemon --title=egg-server-assist-server",
     "start:finup:test": "npm run tsc && PLATFORM=finup:test egg-scripts start --daemon --title=egg-server-assist-server",
     "start:finup:production": "npm run tsc && PLATFORM=finup:production egg-scripts start --daemon --title=egg-server-assist-server",
+    "start:finup:production_gray": "npm run tsc && PLATFORM=finup:production_gray egg-scripts start --daemon --title=egg-server-assist-server",
     "start:renmai:production": "npm run tsc && PLATFORM=renmai:production egg-scripts start --daemon --title=egg-server-assist-server",
     "stop": "egg-scripts stop --title=egg-server-assist-server",
     "dev": "egg-bin dev",
