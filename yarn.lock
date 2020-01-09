@@ -4869,6 +4869,11 @@ node-environment-flags@1.0.5:
     object.getownpropertydescriptors "^2.0.3"
     semver "^5.7.0"
 
+node-forge@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.npm.taobao.org/node-forge/download/node-forge-0.9.1.tgz?cache=0&sync_timestamp=1569524669712&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fnode-forge%2Fdownload%2Fnode-forge-0.9.1.tgz#775368e6846558ab6676858a4d8c6e8d16c677b5"
+  integrity sha1-d1No5oRlWKtmdoWKTYxujRbGd7U=
+
 node-homedir@^1.1.1:
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/node-homedir/download/node-homedir-1.1.1.tgz#736db0b60e3bba8aba68df9927de40a7aabe1075"
