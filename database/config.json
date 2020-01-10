@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "assist",
+    "password": "localhost__mysql__assist",
+    "database": "assist",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "assist",
+    "password": "10.10.80.242__mysql__assist",
+    "database": "assist",
+    "host": "10.10.80.242",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
