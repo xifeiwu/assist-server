@@ -7,7 +7,7 @@ const plugin: EggPlugin = {
   //   package: 'egg-view-nunjucks',
   // },
   sequelize: {
-    enable: false,
+    enable: true,
     package: 'egg-sequelize',
   }
 };
