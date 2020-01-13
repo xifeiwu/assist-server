@@ -34,7 +34,8 @@
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/egg-bin",
             "args": [
                 "test",
-                "${relativeFile}"
+                "${relativeFile}",
+                "--full-trace"
             ],
             "cwd": "${workspaceRoot}",
             "protocol": "inspector",
