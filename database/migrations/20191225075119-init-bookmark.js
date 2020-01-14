@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const { INTEGER, DATE, STRING, BIGINT } = Sequelize;
+    const { INTEGER, DATE, STRING, BIGINT, BOOLEAN } = Sequelize;
     await queryInterface.createTable('bookmark', {
       id: { type: STRING(64), primaryKey: true},
       parentId: STRING(64),
@@ -11,6 +11,12 @@ module.exports = {
       url: STRING(255),
       dateAdded: BIGINT,
       dateGroupModified: BIGINT,
+      username: {
+        type: STRING(255),
+        unique: true,
+        allowNull: false
+      },
+      comment: STRING(512),
       createdAt: {
         type: DATE,
         defaultValue: Sequelize.fn('NOW'),

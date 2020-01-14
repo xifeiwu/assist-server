@@ -2,7 +2,7 @@
 
 module.exports = app => {
     const Sequelize = app.Sequelize;
-    const { STRING, INTEGER, DATE, BIGINT } = Sequelize;
+    const { STRING, INTEGER, DATE, BIGINT, BOOLEAN } = Sequelize;
 
     const Bookmark = app.model.define('user', {
         id: { type: STRING(64), primaryKey: true },
