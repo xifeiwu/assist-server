@@ -16,4 +16,5 @@ export default (app: Application) => {
   router.post('/api/paas/cas-identify', controller.paas.casIndentify);
 
   router.all('/api/user/login', controller.user.login);
+  router.all('/api/user/verifyToken', controller.user.verifyToken);
 };

@@ -17,7 +17,7 @@ export default class UserService extends Service {
         const { app, ctx } = this;
         const user = await ctx.model.User.findOne({
             where: obj,
-            // attributes: ['id', 'username', 'role']
+            attributes: ['id', 'username', 'realname', 'email', 'role', 'age', 'birthday', 'createdAt', 'updatedAt']
         });
         return user;
     }
