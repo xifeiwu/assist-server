@@ -34,7 +34,7 @@ module.exports = {
       },
       password: STRING(255),
       email: STRING(100),
-      role: STRING(100),
+      group: STRING(100),
       age: INTEGER,
       birthday: DATE,
       passwordMd5: STRING(255),
