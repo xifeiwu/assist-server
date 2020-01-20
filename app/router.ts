@@ -17,4 +17,6 @@ export default (app: Application) => {
 
   router.all('/api/user/login', controller.user.login);
   router.all('/api/user/verifyToken', controller.user.verifyToken);
+
+  router.get('/api/sage/ask', controller.sage.ask);
 };
