@@ -9,6 +9,7 @@
   },
   "scripts": {
     "start": "npm run tsc && egg-scripts start --daemon --title=egg-server-assist-server",
+    "start:production": "npm run tsc && EGG_SERVER_ENV=prod egg-scripts start --daemon --title=egg-server-assist-server",
     "start:finup:test": "npm run tsc && PLATFORM=finup:test egg-scripts start --daemon --title=egg-server-assist-server",
     "start:finup:production": "npm run tsc && PLATFORM=finup:production egg-scripts start --daemon --title=egg-server-assist-server",
     "start:finup:production_gray": "npm run tsc && PLATFORM=finup:production_gray egg-scripts start --daemon --title=egg-server-assist-server",

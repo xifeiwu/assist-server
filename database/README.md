@@ -13,6 +13,3 @@ npx sequelize-cli db:seed:undo --seed name-of-seed-as-in-data
 
 ### use of mysqldump
 
-mysqldump -uroot -p --databases assist > db.assist.sql
-
-mysql -uroot -p < db.assist.sql
